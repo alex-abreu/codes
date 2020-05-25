@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-br"> 
+  <head> 
+    <title>Mallory Imobiliária </title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="src/css/stylesheet.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="src/js/index.js"></script>
+  </head>
+  <body> 
+    <nav>
+      <div class="sidenav d-sm-flex d-md-flex d-lg-flex d-xl-flex flex-column bd-hightlight mb-3">
+        <div class="sidenav-header d-inline-flex mb-4 mt-4">
+          <div class="p-2"><img class="img-fluid" alt="mallory" style="max-width: 200px" src="src/assets/mallory-logo-pb.svg"/></div>
+        </div>
+        <div>
+          <div class="sidenav-item p-2" onclick="scrollToView('main')">Home</div>
+          <div class="sidenav-item p-2" onclick="scrollToView('slideshow')">Nossos imóveis</div>
+          <div class="sidenav-item p-2" onclick="scrollToView('about')">Quem somos </div>
+          <div class="sidenav-item p-2" onclick="scrollToView('missao')">Missão</div>
+          <div class="sidenav-item p-2" onclick="scrollToView('contact')">Contato</div>
+          <div class="sidenav-item p-2"> 
+            <button class="neutral-buttom btn-block text-left" onClick="Javascript:window.location.href = 'restrict.php';" type="button">Restricted</button>
+          </div>
+         
+          <div class="sidenav-item p-2"> 
+            <button class="neutral-buttom btn-block text-left" type="button" data-toggle="modal" data-target="#login_modal">Login</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main class="main-margin" id="main">
+      <div class="jumbotron"> 
+        <div class="container"> 
+          <div>
+            <h1 class="display-5 default-font" style="color: white">Sua casa. Seu jeito.</h1>
+            <p class="default-font-lighter" style="color: white">Não vendemos casas, vendemos sonhos, então, se seu sonho é ter uma casa, você veio ao lugar certo.</p>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row mb-3"> 
+          <div class="col-sm col-md col-lg col-xl">
+            <h2 class="default-font default-color">Nossos imóveis</h2>
+          </div>
+        </div>
+        <div class="row mb-5" id="slideshow">
+          <div class="col-sm col-md col-lg col-xl">
+            <div class="carousel slide" id="carouselCaptions" data-ride="carousel">
+              <ol class="carousel-indicators"> 
+                <li class="active" data-target="#carouselCaptions" data-slide-to="0"></li>
+                <li data-target="#carouselCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselCaptions" data-slide-to="2"></li>
+                <li data-target="#carouselCaptions" data-slide-to="3"></li>
+                <li data-target="#carouselCaptions" data-slide-to="4"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active"><img class="img-fluid" style="max-height: 500px; width: 100%" src="src/assets/houses/house-1.jpg" alt="..."/></div>
+                <div class="carousel-item"><img class="img-fluid" style="max-height: 500px; width: 100%" src="src/assets/houses/house-2.jpg" alt="..."/></div>
+                <div class="carousel-item"><img class="img-fluid" style="max-height: 500px; width: 100%" src="src/assets/houses/house-3.jpg" alt="..."/></div>
+                <div class="carousel-item"><img class="img-fluid" style="max-height: 500px; width: 100%" src="src/assets/houses/house-4.jpg" alt="..."/></div>
+                <div class="carousel-item"><img class="img-fluid" style="max-height: 500px; width: 100%" src="src/assets/houses/house-5.jpg" alt="..."/></div>
+                <div class="row mb-3"> </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mb-3" id="about">
+          <div class="col-sm col-md col-lg col-xl">
+            <h2 class="default-font default-color">Quem somos</h2>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm col-md col-lg col-xl">
+            <h5 class="display-4 text-left" style="font-size: 1.5rem">Somos uma empresa que quer realizar o seu sonho de ter um lugar pra chamar de seu. Seja a compra da casa própria, aluguel residencial ou comercial seremos a ponte que te conectará a esse desejo. Possuimos uma vasta gama de opções que, certamente, atenderão suas necessidades, todas elas listadas nesse site. Nossas corretoras estão a disposição para ajudar a encontrar o melhor lugar para você!</h5>
+          </div>
+        </div>
+        <div class="row mb-3" id="missao">
+          <div class="col-sm col-md col-lg col-xl">
+            <h2 class="default-font default-color">Nossa Missão</h2>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-sm col-md col-lg col-xl">
+            <h5 class="display-4 text-left" style="font-size: 1.5rem">Nós da Mallory temos como proposito
+            conectar o cliente ao seu imovel de desejo, o imovel que melhor vai atender as suas necessidades, seja
+            de moradia, seja comercial, compra ou aluguel, independente do objetivo nossos profissionais farão
+            todo possivel parar que voce saia 100% satisfeito!</h5>
+          </div>
+        </div>
+        <div class="row mb-1">
+          <div class="col-sm col-md col-lg col-xl">
+            <h2 class="default-font default-color">Entre em contato!</h2>
+          </div>
+        </div>
+        <div class="row mb-3" id="contact">
+          <div class="col-sm col-md col-lg col-xl">
+            <h5 class="display-4 text-left" style="font-size: 1.5rem">Gostou de algum imóvel? Ficou com alguma dúvida? Entre em contato e faremos o possivel para ajudar!</h5>
+             <ul>
+                <li style="font-size: 1.5rem">Telefone: 34-3232-3232</li>
+                <li style="font-size: 1.5rem">Whatsapp: 34-9-99998888 </li>
+                <li style="font-size: 1.5rem">email: atendimento@mallory.com</li>
+              </ul> 
+          </div>
+        </div>
+      </div>
+      <div class="jumbotron m-0"> 
+        <div>
+          <h5 class="display-5 default-font text-center" style="color:white">Nossas redes sociais</h5>
+          <div class="d-sm-flex d-md-flex d-lg-flex d-xl-flex justify-content-center">
+            <div><a class="fa fa-facebook no-decoration" href="https://www.facebook.com"></a></div>
+            <div><a class="fa fa-twitter no-decoration" href="https://www.twitter.com"></a></div>
+            <div><a class="fa fa-instagram no-decoration" href="https://www.instagram.com"></a></div>
+          </div>
+        </div>
+      </div>
+      <!--modal -->
+      <div class="modal fade" id="login_modal" tabindex="-1" role="dialog" aria-labelledby="Login" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content"> 
+            <div class="modal-header">  
+              <h5 class="modal-title" id="Login">Login </h5>
+              <button class="close" type="button" data-dismiss="modal" aria-label="Fechar"><span aria-hidden="true">&times; </span></button>
+            </div>
+            <div class="modal-body">
+              <div class="container-fluid"> 
+                <form action="loginGo.php" method="POST"> 
+                  <div class="form-group"> 
+                    <label for="email">Email </label>
+                    <input class="form-control" id="email" type="email" name="email" aria-describedby="email_helper" placeholder="insira seu e-mail"/><small class="form-text text-muted" id="email_helper">Evite usar emails com nomes estranhos </small>
+                  </div>
+                  <div class="form-group"> 
+                    <label for="password">Senha</label>
+                    <input class="form-control" id="password" type="password" name="password" placeholder="insira sua senha"/>
+                  </div>
+                <div class="modal-footer"> 
+              <button class="btn btn-primary" type="submit">Entrar</button>
+                </div>
+            </form>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    </main>
+  </body>
+</html>
