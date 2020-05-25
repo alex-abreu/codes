@@ -1,0 +1,222 @@
+    /**
+     * Cria um JPanel com a Lista de Pacientes do sistema, 
+     * a tabela de dados do paciente e os botões de controle
+     * deste painel, usará o gerenciador de Layout GridBagLayout
+     * @param void
+     * @return JPanel
+     
+    public JPanel patientPanel()
+    {
+        patients = new ArrayList<Paciente>();
+
+        String[] table_columns = {"Nome", "Cpf", "Rg", "Endereço", "Data Nascimento", "Telefone", "Primeira consulta"};
+        String[] buttons_names = {"Adicionar paciente", "Remover paciente", "Editar paciente"};
+        patients.add(new Paciente("Carlos", "12345678910", "20123132", "Rua dos bobos", "05/06/2007", "1234-5000", "05/01/2001"));
+
+        Object[][] table_rows = 
+        {
+            {patients.get(0).getName(), patients.get(0).getCpf(), patients.get(0).getRg(), 
+             patients.get(0).getAdress(), patients.get(0).getNascimento(), patients.get(0).getTelefone(),
+             patients.get(0)._getPrimeira_consulta()}
+        };
+
+        Object list_rows = patients.get(0).getName();
+        JLabel patients_label = new JLabel("Pacientes");
+        Box button_box = new Box(BoxLayout.X_AXIS);  //caixa para os botões
+        JButton[] buttons = new JButton[buttons_names.length]; //botões do painel
+
+        JPanel patient_panel = new JPanel();
+            patient_panel.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+
+        patient_list_model = new DefaultListModel();
+            patient_list_model.addElement(list_rows);
+        patient_list = new JList(patient_list_model);
+
+        patient_model = new DefaultTableModel(table_rows, table_columns);
+        patient_table = new JTable(patient_model);
+
+        JScrollPane list_pane = new JScrollPane(patient_list);
+        JScrollPane table_pane = new JScrollPane(patient_table);
+            patient_table.setPreferredScrollableViewportSize(new Dimension(800, 508));
+            patient_table.setFillsViewportHeight(true);
+        JSplitPane split_pane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+            split_pane.setContinuousLayout(true);
+            split_pane.setOneTouchExpandable(true);
+            split_pane.setTopComponent(list_pane);
+            split_pane.setBottomComponent(table_pane);
+        
+        //adicionar o título do painel na linha 0 coluna 0 
+        c.weightx = 0.5;
+        c.gridx = 0;
+        c.gridy = 0;
+            patient_panel.add(patients_label, c);
+        
+        for(int i = 0; i < buttons_names.length; i++)
+        {
+            buttons[i] = new JButton(buttons_names[i]);
+            button_box.add(buttons[i]);
+        }
+        
+        //adicionar os listeners
+
+        //adicionar o splitpane na linha 1 e preencher n colunas na horizontal 
+        c.gridwidth = buttons_names.length;
+        c.gridx = 0;
+        c.gridy = 1;
+            patient_panel.add(split_pane, c);
+        c.gridx = 0;
+        c.gridy = 2;
+            patient_panel.add(button_box, c);
+        
+        return patient_panel;
+    }//patientPanel
+
+    public JPanel consultPanel()
+    {
+        /** data consulta hora consulta medico e paciente 
+         * public Consulta(String dataConsulta, String horaConsulta, Medico medico, Paciente paciente)
+        
+        consults = new ArrayList<Consulta>();
+
+        String[] table_columns = {"Data", "Hora", "Médico", "Paciente"};
+        String[] buttons_names = {"Marcar consulta", "Desmarcar consulta", "Editar consulta"};
+
+        consults.add(new Consulta("05/06/2019", "03:30", null, null));
+
+        Object[][] table_rows = 
+        {
+            {consults.get(0).getDataConsultaStr(), consults.get(0).getHoraConsultaStr(), "Swing", "Awt"}
+        };
+
+        JLabel consult_label = new JLabel("Consultas");
+        Box button_box = new Box(BoxLayout.X_AXIS);             //caixa para os botões
+        JButton[] buttons = new JButton[buttons_names.length]; //botões do painel
+
+        JPanel consult_panel = new JPanel();
+            consult_panel.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        c.fill = GridBagConstraints.HORIZONTAL;
+
+        consult_model = new DefaultTableModel(table_rows, table_columns);
+        consult_table = new JTable(consult_model);
+
+        JPanel exams = examPanel(null, null, null, null, null, null); //split
+
+        JScrollPane table_pane = new JScrollPane(consult_table);
+            consult_table.setPreferredScrollableViewportSize(new Dimension(800, 300));
+            consult_table.setFillsViewportHeight(true);
+        JSplitPane split_pane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+            split_pane.setContinuousLayout(true);
+            split_pane.setOneTouchExpandable(true);
+            split_pane.setTopComponent(exams);
+            split_pane.setBottomComponent(table_pane);
+        
+        //adicionar o título do painel na linha 0 coluna 0 
+        c.weightx = 0.5;
+        c.gridwidth = buttons_names.length;
+        c.gridx = 0;
+        c.gridy = 0;
+            consult_panel.add(split_pane, c);
+        
+        for(int i = 0; i < buttons_names.length; i++)
+        {
+            buttons[i] = new JButton(buttons_names[i]);
+            button_box.add(buttons[i]);
+        }
+        
+        //adicionar os listeners
+
+        //adicionar o splitpane na linha 1 e preencher n colunas na horizontal 
+        c.gridx = 0;
+        c.gridy = 1;
+            consult_panel.add(button_box, c);
+        
+        return consult_panel;
+    }
+    */
+
+    class MenuAddExamListener implements ActionListener
+    {
+        JTextField inner_fields[];
+        JTextArea  inner_obs_field;
+        JFrame frame;
+
+        public void clearExamsInnerFields()
+        {
+            inner_fields[0].setText("");
+            inner_fields[1].setText("");
+            inner_fields[2].setText("");
+            inner_fields[3].setText("");
+            inner_obs_field.setText("");
+        }
+
+        public void setUpForm()
+        {
+            frame = new JFrame();
+            inner_fields = new JTextField[4];                                                
+                inner_fields[0] = new JTextField(30);
+                inner_fields[1] = new JTextField(8);
+                inner_fields[2] = new JTextField(1);
+                inner_fields[3] = new JTextField(1);
+                inner_obs_field = new JTextArea(3, 40);
+
+            JButton saveButton = new JButton("Adicionar");
+                saveButton.addActionListener(new SaveExamListener());
+
+            JPanel form = examForm(inner_fields, inner_obs_field);
+            frame.getContentPane().add(BorderLayout.CENTER, form);
+            frame.getContentPane().add(BorderLayout.SOUTH, saveButton);
+            //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setVisible(true);
+            frame.pack();
+        }//setUpForm
+
+        @Override
+        public void actionPerformed(ActionEvent ev)
+        {
+            setUpForm();
+        }//AddExamListener
+
+        class SaveExamListener implements ActionListener
+        {
+            @Override
+            public void actionPerformed(ActionEvent ev)
+            {
+                Object[] data = 
+                {
+                    inner_fields[0].getText(), 
+                    inner_fields[1].getText(),
+                    inner_obs_field.getText(), 
+                    inner_fields[3].getText(),
+                    inner_fields[4].getText()
+                };
+
+                int handle = e.addExame(data);
+                if(handle == -1)
+                {
+                    exam_model.addRow(data);
+
+                    exam_table.clearSelection();
+                    exam_model.fireTableDataChanged();
+                    clearExamsInnerFields();
+                    JOptionPane.showMessageDialog(null, "exame: "+ inner_fields[0].getText() + " adicionado com sucesso");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                } else if(handle == 8) {
+                    clearExamsInnerFields();
+                    JOptionPane.showMessageDialog(null, "Não se pode dar um nome vazio a um exame!");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                } else if(handle == 4){
+                    clearExamsInnerFields();
+                    JOptionPane.showMessageDialog(null, "Codigo já perternce a outro exame, exame não adicionado!");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+                else {
+                    clearExamsInnerFields();
+                    JOptionPane.showMessageDialog(null, "exame: "+ inner_fields[0].getText() + " não foi adicionado. Exame existente ou erro ao acessar o arquivo!");
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+            }//actionPerformed
+        }//saveExameListneer
+    }//AddExamListener
